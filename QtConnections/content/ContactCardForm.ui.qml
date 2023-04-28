@@ -16,7 +16,12 @@ Rectangle {
     width: 977
     height: 495
     color: "#2f3b52"
+    property alias selectPictureButton: selectPictureButton
+    property alias addContactButton: addContactButton
+    property alias cancelButton: cancelButton
+
     property alias cardText: addContactLabel.text
+    property alias addContactText: addContactButton.text
 
     RowLayout {
         id: layoutContainer

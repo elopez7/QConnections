@@ -1,8 +1,8 @@
-import QtQuick 6.4
-import QtQuick.Controls 6.4
+import QtQuick
+import QtQuick.Controls
 import QtConnections
-import QtQuick.Layouts 6.3
-import QtCharts 6.3
+import QtQuick.Layouts
+import "ccontrols"
 
 Rectangle {
     id: root
@@ -10,7 +10,7 @@ Rectangle {
     height: Constants.height
     color: "#242e42"
 
-    signal loadPage(url pageUrl)
+    signal loadPage
 
     Image {
         id: titleImage
@@ -34,7 +34,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.rightMargin: 272
-            anchors.bottomMargin: 256
+            anchors.bottomMargin: 128
             anchors.leftMargin: 53
             anchors.topMargin: 382
 
@@ -64,7 +64,7 @@ Rectangle {
                 id: item1
                 width: 200
                 height: 200
-                Layout.maximumHeight: 64
+                Layout.maximumHeight: 163
                 Layout.fillHeight: true
                 Layout.fillWidth: true
             }
@@ -107,6 +107,21 @@ Rectangle {
                     fillMode: Image.PreserveAspectFit
                 }
             }
+
+            CButton {
+                id: demoButton
+                text: "Demo"
+                Layout.topMargin: 56
+                Layout.rightMargin: 439
+                Layout.fillWidth: true
+                Connections {
+
+                    function onClicked() {
+                        /*We need to log in as a guest here*/
+                        loadPage()
+                    }
+                }
+            }
         }
     }
 
@@ -123,8 +138,8 @@ Rectangle {
 
         Connections {
             target: userInitStackView
-            function onLoadPage(pageUrl) {
-                loadPage(pageUrl)
+            function onLoadPage() {
+                loadPage()
             }
         }
     }

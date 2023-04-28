@@ -6,7 +6,7 @@ StackView {
     width: 327
     height: 738
     initialItem: "SignIn.qml"
-    signal loadPage(url pageUrl)
+    signal loadPage()
 
     pushEnter: Transition {
         PropertyAnimation {
@@ -65,8 +65,8 @@ StackView {
             root.replace(pageUrl)
         }
 
-        function onLoadPage(pageUrl){
-            root.loadPage(pageUrl)
+        function onLoadPage(){
+            root.loadPage()
         }
     }
 }

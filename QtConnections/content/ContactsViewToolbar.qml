@@ -12,8 +12,11 @@ ContactsViewToolbarForm {
         addContact()
     }
 
-//    removeContactButton
+    removeContactButton.onClicked: {
+        removeContact()
+    }
 
-//    addContactButton
-
+    editContactButton.onClicked: {
+        editContact()
+    }
 }

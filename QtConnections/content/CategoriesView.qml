@@ -26,4 +26,24 @@ Item {
             color: "Red"
         }
     }
+
+    RoundButton{
+        id: customRoundButton
+        x: 159
+        y: 116
+        width: 167
+        height: 167
+        text: "+"
+        font.pixelSize: 164
+        font.bold: false
+        font.family: "Roboto"
+        display: AbstractButton.TextOnly
+
+        background: Rectangle{
+            radius: customRoundButton.radius
+            color: customRoundButton.down ? "#047eff" : "#1f8efa"
+        }
+
+
+    }
 }

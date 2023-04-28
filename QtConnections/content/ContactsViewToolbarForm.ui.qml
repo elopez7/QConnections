@@ -20,30 +20,28 @@ Item {
 
     ColumnLayout {
         anchors.fill: parent
-        spacing: 7
         CIconButton {
             id: addContactButton
             Layout.fillHeight: true
             Layout.fillWidth: true
-            iconSource: "images/buttonAdd.png"
         }
         CIconButton {
             id: removeContactButton
+            buttonTextIcon: "-"
             Layout.fillHeight: true
             Layout.fillWidth: true
-            iconSource: "images/buttonRemove.png"
         }
 
         CIconButton {
             id: editContactButton
+            buttonTextIcon: "|||"
             Layout.fillHeight: true
             Layout.fillWidth: true
-            iconSource: "images/categoriesIconHighlight.png"
         }
 
         Item {
             id: spacer
-            Layout.topMargin: 4
+            Layout.topMargin: 390
             Layout.fillWidth: true
             Layout.fillHeight: true
         }

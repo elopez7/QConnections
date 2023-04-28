@@ -21,7 +21,7 @@ Loader {
     Connections {
         target: screenLoader.item
         ignoreUnknownSignals: true
-        function onLoadPage(pageUrl) {
+        function onLoadPage() {
             screenLoader.source = "Dashboard.qml"
         }
     }

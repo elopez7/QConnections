@@ -14,6 +14,7 @@ import "ccontrols"
 Item {
     width: 327
     height: 728
+    property alias errorLabel: errorLabel
     property alias signUpMouseArea: signUpMouseArea
     property alias forgotPasswordMouseArea: forgotPasswordMouseArea
     property alias signInButton: signInButton
@@ -136,6 +137,20 @@ Item {
                 anchors.bottomMargin: 32
                 anchors.topMargin: 32
             }
+        }
+
+        Label {
+            id: errorLabel
+            visible: false
+            color: "#EE423D"
+            text: qsTr("ERROR MESSAGE")
+            font.pixelSize: 12
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            font.styleName: "Bold"
+            font.family: "Roboto"
+            Layout.fillHeight: true
+            Layout.fillWidth: true
         }
 
         RowLayout {

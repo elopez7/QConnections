@@ -16,8 +16,10 @@ qt6_add_qml_module(content
         UserInitStackView.qml
         DashboardForm.ui.qml
         ContactCard.qml
+        ConfirmForm.ui.qml
         ForgotPassword.qml
         ContactsGridViewModel.qml
+        Confirm.qml
         WelcomeScreen.ui.qml
         SignIn.qml
         ContactsGridViewDelegate.ui.qml
@@ -52,6 +54,7 @@ qt6_add_qml_module(content
         images/contactsIcon.png
         images/homeIconHighlight.png
         images/titleImage.png
+        images/warningIcon.png
         images/contactsIconHighlight.png
         images/C_Logo.png
         images/homeIcon.png

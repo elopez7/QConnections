@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtConnections
 import QtQuick.Layouts
 import "ccontrols"
+//import com.esteban.firebaseauth
 
 Rectangle {
     id: root
@@ -118,7 +119,8 @@ Rectangle {
 
                     function onClicked() {
                         /*We need to log in as a guest here*/
-                        loadPage()
+                        //AuthHandler.testCommand()
+                        //loadPage()
                     }
                 }
             }

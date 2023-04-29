@@ -10,22 +10,32 @@ set(CMAKE_AUTOMOC ON)
 find_package(QT NAMES Qt6 COMPONENTS Gui Qml Quick)
 find_package(Qt6 REQUIRED COMPONENTS Core Qml Quick)
 
+
 # To build this application you need Qt 6.2.0 or higher
 if (Qt6_VERSION VERSION_LESS 6.2.0)
-message(FATAL_ERROR "You need Qt 6.2.0 or newer to build the application.")
+    message(FATAL_ERROR "You need Qt 6.2.0 or newer to build the application.")
 endif()
 
-qt_add_executable(${CMAKE_PROJECT_NAME} src/main.cpp)
+add_subdirectory(src)
+
+qt_add_executable(${CMAKE_PROJECT_NAME}
+    src/main.cpp
+    #src/authhandler.h
+    #src/authhandler.cpp
+)
+target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
+
+
 
 # qt_standard_project_setup() requires Qt 6.3 or higher. See https://doc.qt.io/qt-6/qt-standard-project-setup.html for details.
 if (${QT_VERSION_MINOR} GREATER_EQUAL 3)
-qt6_standard_project_setup()
+    qt6_standard_project_setup()
 endif()
 
 qt_add_resources(${CMAKE_PROJECT_NAME} "configuration"
     PREFIX "/"
     FILES
-        qtquickcontrols2.conf
+    qtquickcontrols2.conf
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
@@ -33,6 +43,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Gui
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Qml
+    #authModulePlugin
 )
 
 if (${BUILD_QDS_COMPONENTS})

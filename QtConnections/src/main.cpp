@@ -8,6 +8,8 @@
 #include "import_qml_components_plugins.h"
 #include "import_qml_plugins.h"
 
+//Q_IMPORT_QML_PLUGIN(authModulePlugin)
+
 int main(int argc, char *argv[])
 {
     set_qt_environment();

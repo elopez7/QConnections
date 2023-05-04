@@ -25,7 +25,7 @@ Item {
             id: image
             width: 100
             height: 100
-            source: "images/LogoNoCaption.png"
+            source: "images/logoNoCaption.png"
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             Layout.maximumHeight: 128
             Layout.maximumWidth: 128

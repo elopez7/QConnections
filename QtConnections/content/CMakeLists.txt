@@ -48,7 +48,7 @@ qt6_add_qml_module(content
         fonts/Roboto-Regular.ttf
         fonts/Roboto-Black.ttf
         fonts/Roboto-Bold.ttf
-        images/LogoNoCaption.png
+        images/logoNoCaption.png
         images/profilePic.png
         images/categoriesIcon.png
         images/contactsIcon.png
@@ -56,12 +56,12 @@ qt6_add_qml_module(content
         images/titleImage.png
         images/warningIcon.png
         images/contactsIconHighlight.png
-        images/C_Logo.png
+        images/cppLogo.png
         images/homeIcon.png
         images/searchIcon.png
         images/buttonRemove.png
         images/buttonAdd.png
-        images/LogoCaption.png
+        images/logoCaption.png
         images/qtLogo.png
         images/categoriesIconHighlight.png
 

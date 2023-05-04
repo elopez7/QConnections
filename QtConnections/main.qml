@@ -3,7 +3,6 @@ C++ project. */
 
 import QtQuick
 import content
-import AuthModule
 
 App {
 }

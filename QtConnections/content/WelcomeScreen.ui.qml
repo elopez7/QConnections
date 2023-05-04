@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtConnections
 import QtQuick.Layouts
 import "ccontrols"
-//import com.esteban.firebaseauth
+import authModule
 
 Rectangle {
     id: root
@@ -12,6 +12,10 @@ Rectangle {
     color: "#242e42"
 
     signal loadPage
+
+    LoginComponent{
+        id: loginComponent
+    }
 
     Image {
         id: titleImage
@@ -22,7 +26,7 @@ Rectangle {
             id: logoCaption
             anchors.left: parent.left
             anchors.top: parent.top
-            source: "images/LogoCaption.png"
+            source: "images/logoCaption.png"
             anchors.topMargin: 56
             anchors.leftMargin: 53
             fillMode: Image.PreserveAspectFit
@@ -99,7 +103,7 @@ Rectangle {
 
                 Image {
                     id: c_Logo
-                    source: "images/C_Logo.png"
+                    source: "images/cppLogo.png"
                     Layout.maximumWidth: 64
                     Layout.maximumHeight: 64
                     Layout.minimumHeight: 64
@@ -119,7 +123,7 @@ Rectangle {
 
                     function onClicked() {
                         /*We need to log in as a guest here*/
-                        //AuthHandler.testCommand()
+                        loginComponent.anonymousLogin()
                         //loadPage()
                     }
                 }

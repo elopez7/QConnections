@@ -16,8 +16,6 @@ if (Qt6_VERSION VERSION_LESS 6.2.0)
     message(FATAL_ERROR "You need Qt 6.2.0 or newer to build the application.")
 endif()
 
-add_subdirectory(src)
-
 qt_add_executable(${CMAKE_PROJECT_NAME}
     src/main.cpp
     #src/authhandler.h
@@ -36,14 +34,16 @@ qt_add_resources(${CMAKE_PROJECT_NAME} "configuration"
     PREFIX "/"
     FILES
     qtquickcontrols2.conf
+    config.json
 )
 
+add_subdirectory(authModule)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Gui
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Qml
-    #authModulePlugin
+    authModulePlugin
 )
 
 if (${BUILD_QDS_COMPONENTS})

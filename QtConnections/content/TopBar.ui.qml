@@ -15,7 +15,7 @@ Item {
         anchors.right: searchBar.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        source: "images/LogoCaption.png"
+        source: "images/logoCaption.png"
         anchors.rightMargin: 0
         fillMode: Image.PreserveAspectFit
     }

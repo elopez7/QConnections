@@ -1,12 +1,36 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import dashboardModule
 import "ccontrols"
 
 Item {
     id: root
     width: 1250
     height: 833
+
+    property int authMethod
+
+    property int anonymous : 0
+    property int emailAndPassword : 1
+
+    DashboardComponent{
+        id: dashboardMain
+    }
+
+    Component.onCompleted: {
+        dashboardMain.getRandomUserFromWeb()
+    }
+
+    Connections{
+        target: dashboardMain
+        function onRandomUserReadSuccess(){
+            firstNameField.text = dashboardMain.firstName
+            lastNameField.text = dashboardMain.lastName
+            emailField.text = dashboardMain.email
+            profilePicture.source = dashboardMain.profilePicture
+        }
+    }
 
     RowLayout{
         id: informationLayout

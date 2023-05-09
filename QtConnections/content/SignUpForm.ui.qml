@@ -10,12 +10,17 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 6.3
 import "ccontrols"
+import authModule
 
 Item {
     width: 327
     height: 728
     property alias signUpButton: signUpButton
     property alias loginMouseArea: loginMouseArea
+
+    property alias emailInput: emailInput
+    property alias passwordInput: passwordInput
+    property alias confirmPasswordInput: confirmPasswordInput
 
     ColumnLayout {
         id: columnLayout

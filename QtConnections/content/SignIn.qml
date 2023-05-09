@@ -1,20 +1,36 @@
 import QtQuick 2.15
+import authModule
 
 SignInForm {
-    signal loadPage()
+    signal loadPage(int authMethod)
     signal pushPage(url pageUrl)
 
     signInButton.onClicked: {
-        //Sign in functionality here
-        //If sign in successful, then load the Dashboard
-        //errorLabel.visible = !errorLabel.visible
+        if(!emailInput.text || !passwordInput.text){
+            emailInput.text = ""
+            passwordInput.text = ""
+            errorLabel.text = "Email or password can't be empty"
+            errorLabel.visible = true
+            return
+        }
 
-        //Remember, this loadPage() already works
-
-        loadPage()
+        signInButton.enabled = false
+        AuthComponent.emailPasswordSignIn(emailInput.text, passwordInput.text)
     }
 
     signUpMouseArea.onClicked: pushPage("SignUp.qml")
     forgotPasswordMouseArea.onClicked: pushPage("ForgotPassword.qml")
 
+    Connections{
+        target: AuthComponent
+
+        function onEmailPasswordLogInSuccess(){
+            loadPage(AuthComponent.authMethod)
+        }
+
+        function onEmailPasswordLogInFailure(){
+            errorLabel.text = "An error has ocurred"
+            errorLabel.visible = true;
+        }
+    }
 }

@@ -16,6 +16,8 @@ Rectangle {
     height: Constants.height
     color: "#242e42"
 
+    property alias dashboardStackView: dashboardStackView
+
     TopBar {
         id: topBar
         height: 64
@@ -44,7 +46,6 @@ Rectangle {
 
     DashboardStackView {
         id: dashboardStackView
-        initialItem: "DashboardMain.qml"
         anchors.left: dashboardMenu.right
         anchors.right: parent.right
         anchors.top: topBar.bottom

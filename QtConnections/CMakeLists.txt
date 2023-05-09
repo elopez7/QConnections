@@ -18,8 +18,6 @@ endif()
 
 qt_add_executable(${CMAKE_PROJECT_NAME}
     src/main.cpp
-    #src/authhandler.h
-    #src/authhandler.cpp
 )
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 
@@ -38,12 +36,14 @@ qt_add_resources(${CMAKE_PROJECT_NAME} "configuration"
 )
 
 add_subdirectory(authModule)
+add_subdirectory(dashboardModule)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Gui
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Qml
     authModulePlugin
+    dashboardModulePlugin
 )
 
 if (${BUILD_QDS_COMPONENTS})

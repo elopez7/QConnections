@@ -11,11 +11,7 @@ Rectangle {
     height: Constants.height
     color: "#242e42"
 
-    signal loadPage
-
-    LoginComponent{
-        id: loginComponent
-    }
+    signal loadPage(int authMethod)
 
     Image {
         id: titleImage
@@ -122,9 +118,8 @@ Rectangle {
                 Connections {
 
                     function onClicked() {
-                        /*We need to log in as a guest here*/
-                        loginComponent.anonymousLogin()
-                        //loadPage()
+                        demoButton.enabled = false
+                        AuthComponent.anonymousLogin()
                     }
                 }
             }
@@ -145,8 +140,20 @@ Rectangle {
         Connections {
             target: userInitStackView
             function onLoadPage() {
-                loadPage()
+                loadPage(AuthComponent.authMethod)
             }
+        }
+    }
+
+    Connections{
+        target: AuthComponent
+
+        function onAnonymousLoginSuccess() {
+            loadPage(AuthComponent.authMethod)
+        }
+
+        function onAnonymousLoginFailure() {
+            demoButton.enabled = true
         }
     }
 }

@@ -15,6 +15,8 @@ Item {
     width: 327
     height: 728
     property alias errorLabel: errorLabel
+    property alias emailInput: emailInput
+    property alias passwordInput: passwordInput
     property alias signUpMouseArea: signUpMouseArea
     property alias forgotPasswordMouseArea: forgotPasswordMouseArea
     property alias signInButton: signInButton

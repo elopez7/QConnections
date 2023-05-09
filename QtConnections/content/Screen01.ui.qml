@@ -10,6 +10,7 @@ import QtQuick
 import QtQuick.Controls
 import QtConnections
 import QtQuick.Layouts
+import authModule
 
 Loader {
     id: screenLoader
@@ -21,8 +22,13 @@ Loader {
     Connections {
         target: screenLoader.item
         ignoreUnknownSignals: true
-        function onLoadPage() {
-            screenLoader.source = "Dashboard.qml"
+        function onLoadPage(authMethod) {
+            if(authMethod === AuthComponent.Anonoymous){
+                screenLoader.setSource("Dashboard.qml", {"authMethod": authMethod})
+            }
+            else if(authMethod === AuthComponent.EmailAndPassword){
+                screenLoader.setSource("Dashboard.qml", {"authMethod": authMethod})
+            }
         }
     }
 }
